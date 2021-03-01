@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import {IngredientsListInput} from './components/IngredientsListInput';
+import {PregnantView} from './components/PregnantView';
 
 function App() {
   return (
     <div className="App">
-      <IngredientsListInput />
+      <PregnantView />
     </div>
   );
 }

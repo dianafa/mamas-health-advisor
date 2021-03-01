@@ -1,8 +1,10 @@
-export const KnowledgeBaseClient = () => {
-  const getIngredientInfo = (ingredient: string) => {
+import {Result, Status} from '../types/Result';
+
+export const KnowledgeBaseClient = {
+  getIngredientInfo: (ingredient: string): Result => {
     return {
-      // todo: this needs to be enum
-      status: 'green',
+      uuid: '5' + ingredient,
+      status: Status.GREEN,
       description: 'blabla'
     }
   }

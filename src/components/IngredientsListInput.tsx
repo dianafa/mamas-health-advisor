@@ -1,26 +1,15 @@
-import React, {useState} from 'react';
-
-// todo: this sould return array of response objects
-const getIngredientsInfo = (ingredients: Array<string>): Array<any> => {
-  return [];
-};
-
+import React from 'react';
 
 const parseIngredientsInput = (text: string): Array<string> => {
-  return [];
+  return text.split(',');
 };
 
-export const IngredientsListInput = () => {
-  const [ingredientsList, setIngredientsList] = useState('');
-  // todo: this component should be a dummy input, move this and fetching functions level above
-  const [ingredientsInfo, setIngredientsInfo] = useState([]);
-
+export const IngredientsListInput = ({onSubmit}: {onSubmit: any}) => {
   const onClick = (e: any) => {
     e.preventDefault();
     console.log('OONCLICk');
 
-    //parseIngredientsInput();
-    // setIngredientsList
+    onSubmit(parseIngredientsInput('TODO, todooooo'));
   };
 
   return (
