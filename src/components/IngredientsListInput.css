@@ -1,0 +1,15 @@
+.ingredient-list-input {
+    padding: 10px;
+}
+
+.ingredient-list-input-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#ingredient-list-submit-button {
+    width: 400px;
+    margin: 10px auto;
+}
+
+
