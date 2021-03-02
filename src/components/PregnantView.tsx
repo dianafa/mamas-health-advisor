@@ -9,12 +9,9 @@ export const PregnantView = () => {
 
   const getIngredientsInfo = (ingredients: Array<string>): void => {
     const result: Array<IngredientInfo> = ingredients
-      .flatMap(ingredient => {
-        return [KnowledgeBaseClient.getIngredientInfo(ingredient)];
-        // todo: why it doesn't understand?
-      }) as Array<IngredientInfo>;
-
-      //.filter(ingredientInfo => !!ingredientInfo);
+      .map(ingredient => {
+        return KnowledgeBaseClient.getIngredientInfo(ingredient);
+      }).flatMap(info => info ? [info] : []);
 
     setIngredientsInfo(result);
   };

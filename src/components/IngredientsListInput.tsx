@@ -1,23 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const parseIngredientsInput = (text: string): Array<string> => {
-  return text.split(',');
+  return text.split(',').map(ingredient => ingredient.trim());
 };
 
 export const IngredientsListInput = ({onSubmit}: {onSubmit: any}) => {
-  const onClick = (e: any) => {
-    e.preventDefault();
-    console.log('OONCLICk');
+  const [inputText, setInputText] = useState('');
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
 
-    onSubmit(parseIngredientsInput('TODO, todooooo'));
+    onSubmit(parseIngredientsInput(inputText));
   };
 
+  const handleChange = (event: any) => {
+    setInputText(event.target.value);
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
         Ingredients:
-        <input type="text" name="name" />
+        <input type="text" value={inputText} onChange={handleChange}/>
       </label>
-      <input type="submit" value="Submit" onClick={onClick} />
+      <input type="submit" value="Submit" />
     </form>);
 };
