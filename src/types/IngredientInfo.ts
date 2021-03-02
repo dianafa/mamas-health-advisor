@@ -6,8 +6,9 @@ export enum Status {
   UNRESEARCHED
 }
 
-export type Result = {
+export type IngredientInfo = {
   uuid: string,
+  name: string,
   status: Status,
   description: string
 }

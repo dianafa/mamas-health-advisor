@@ -1,13 +1,14 @@
 import React from 'react';
-import {Result} from '../types/Result';
+import {IngredientInfo} from '../types/IngredientInfo';
 
-export const IngredientsResult = ({results} : {results: Array<Result>}) => {
+export const IngredientsResult = ({results} : {results: Array<IngredientInfo>}) => {
   return (
     <>
       {results.length > 0 && <h2>Your results</h2>}
-      {results.map((result: Result) => <div key={result.uuid}>
-        <b>Status:</b> {result.status}
-        <b>Description:</b> {result.description}
+      {results.map((info: IngredientInfo) => <div key={info.uuid}>
+        <b>Name:</b> {info.name}
+        <b>Status:</b> {info.status}
+        <b>Description:</b> {info.description}
       </div>)}
     </>
   );
