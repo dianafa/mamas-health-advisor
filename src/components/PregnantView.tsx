@@ -9,9 +9,8 @@ export const PregnantView = () => {
 
   const getIngredientsInfo = (ingredients: Array<string>): void => {
     const result: Array<IngredientInfo> = ingredients
-      .map(ingredient => {
-        return KnowledgeBaseClient.getIngredientInfo(ingredient);
-      }).flatMap(info => info ? [info] : []);
+      .map(ingredient => KnowledgeBaseClient.getIngredientInfo(ingredient))
+      .flatMap(info => info ? [info] : []);
 
     setIngredientsInfo(result);
   };

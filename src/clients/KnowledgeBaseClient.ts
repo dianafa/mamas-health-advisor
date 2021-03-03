@@ -6,7 +6,7 @@ export const KnowledgeBaseClient = {
   getIngredientInfo: (ingredient: string): IngredientInfo | null => {
     const lookup: {[index: string]: string} = dataSource.lookup;
     const productData: {[index: string]: LookupResult} = dataSource.productData;
-    const id: string = lookup[ingredient];
+    const id: string = lookup[ingredient.trim().toLowerCase()];
     if (!id) {
       return null;
     }
