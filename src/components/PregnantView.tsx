@@ -8,7 +8,8 @@ export const PregnantView = () => {
   const [ingredientsInfo, setIngredientsInfo] = useState<IngredientInfo[]>([]);
 
   const getIngredientsInfo = (ingredients: Array<string>): void => {
-    const result: Array<IngredientInfo> = ingredients
+    const uniqueIngredients: Array<string> = [...new Set(ingredients)];
+    const result: Array<IngredientInfo> = uniqueIngredients
       .map(ingredient => KnowledgeBaseClient.getIngredientInfo(ingredient))
       .flatMap(info => info ? [info] : []);
 
